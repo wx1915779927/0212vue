@@ -14,7 +14,8 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.0.0-beta.0",
     "copy-webpack-plugin": "^5.1.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

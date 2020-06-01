@@ -1,17 +1,18 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //每次打包自动清理dist
+const {
+  CleanWebpackPlugin
+} = require("clean-webpack-plugin"); //每次打包自动清理dist
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.js"), //入口
+  entry: ["@babel/polyfill", "./src/index.js"], //入口
   output: {
     path: path.resolve(__dirname, "dist"), //打包后存在的位置
     filename: "main.js", //打包后的文件名
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -27,15 +28,13 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192 * 100,
-              name: "[hash:8].[ext]",
-            },
+        use: [{
+          loader: "url-loader",
+          options: {
+            limit: 8192 * 100,
+            name: "[hash:8].[ext]",
           },
-        ],
+        }, ],
       },
       {
         test: /\.vue$/,

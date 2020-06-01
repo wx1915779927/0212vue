@@ -1,19 +1,34 @@
 <template>
-  <div class="container">
-    <Search />
-    <Main />
+  <div>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">{{$store.state.count}}</button>
+    <button @click="incrementAsync">{{$store.state.count}}</button>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import Search from './compones_test/Search'
-import Main from './compones_test/Main'
 export default {
-  components:{
-    Search,
-    Main
+  // data(){
+  //   return{
+  //     count:0
+  //   }
+  // },
+  methods: {
+    increment() {
+      this.$store.dispatch("increment");
+    },
+    decrement() {
+      this.$store.dispatch("decrement");
+    },
+    incrementIfOdd() {
+      this.$store.dispatch("incrementIfOdd");
+    },
+    incrementAsync() {
+      this.$store.dispatch("incrementAsync");
+    }
   }
-}
+};
 </script>
 
 <style scoped></style>

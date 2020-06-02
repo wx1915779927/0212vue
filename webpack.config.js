@@ -10,6 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"), //打包后存在的位置
     filename: "main.js", //打包后的文件名
+    publicPath: '/'
   },
   module: {
     rules: [{
@@ -63,7 +64,9 @@ module.exports = {
     port: 8080,
     open: true,
     quiet: true,
+    historyApiFallback: true,
   },
+
   devtool: "cheap-module-eval-source-map",
   resolve: {
     extensions: [".js", ".json", ".vue"], //解决导入省略后缀名称

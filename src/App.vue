@@ -1,34 +1,49 @@
 <template>
   <div>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-    <button @click="incrementIfOdd">{{$store.state.count}}</button>
-    <button @click="incrementAsync">{{$store.state.count}}</button>
+    <div class="container">
+      <div class="page-header">
+        <h1>路由组件的练习</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- Nav tabs -->
+        <ul class="nav nav-stacked col-md-6" role="tablist">
+          <li role="presentation" class="active">
+            <router-link
+              to="/home"
+              aria-controls="home"
+              role="tab"
+              data-toggle="tab"
+              >Home</router-link
+            >
+            <!-- <a href="#home" aria-controls="home" role="tab" data-toggle="tab"
+              >Home</a
+            > -->
+          </li>
+          <li role="presentation">
+            <router-link
+              to="/about"
+              aria-controls="about"
+              role="tab"
+              data-toggle="tab"
+              >About</router-link
+            >
+          </li>
+        </ul>
+        <div class="tab-content col-md-6">
+          <!-- 显示和路径对应的组件的地方 -->
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 export default {
-  // data(){
-  //   return{
-  //     count:0
-  //   }
-  // },
-  methods: {
-    increment() {
-      this.$store.dispatch("increment");
-    },
-    decrement() {
-      this.$store.dispatch("decrement");
-    },
-    incrementIfOdd() {
-      this.$store.dispatch("incrementIfOdd");
-    },
-    incrementAsync() {
-      this.$store.dispatch("incrementAsync");
-    }
-  }
-};
+
+}
 </script>
 
 <style scoped></style>
